@@ -11,7 +11,7 @@ Burning Todo アプリ
 
 ## セットアップ方法
 1. リポジトリをクローンします：
-   `git clone https://github.com/username/repository-name.git`
+   `git clone https://github.com/mumumu333/burning-todo.git`
 
 2. プロジェクトフォルダに移動します：
    `cd repository-name`
