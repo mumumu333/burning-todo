@@ -62,7 +62,7 @@ export const Todo = () => {
   const CompleteItem = (completeIndex) => {
     // アイテムを削除
     setList(list.filter((_, index) => index !== completeIndex))
-    setFireState(list.filter((_, index) => index !== completeIndex))
+    setFireState((prev) => ({ ...prev, [completeIndex]: false }))
   }
 
   return (
