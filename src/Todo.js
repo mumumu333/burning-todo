@@ -24,7 +24,7 @@ export const Todo = () => {
   const [fireState, setFireState] = useState([])
   const toast = useToast()
 
-  // フォームを入力したとき
+  // 完了ボタンを押したとき
   const AddList = () => {
     // 全項目が入力されていない場合はトースト表示
     if (!detailTxt || !date) {
@@ -35,6 +35,7 @@ export const Todo = () => {
     // 項目が入力されていればデータをtodoリストに反映
     const listGroup = { detail: detailTxt, date: date }
     setList([...list, listGroup])
+    setFireState([...fireState, false])
 
     // フォームをクリア
     setDetailTxt("")
@@ -54,15 +55,19 @@ export const Todo = () => {
 
   // 完了ボタンを押したとき
   const handleComplete = (index) => {
-    // ここでfireStateを更新してアニメーションを発火させる
-    setFireState((prev) => ({ ...prev, [index]: true }))
+    // アニメーションを発火させる
+    setFireState((prev) => {
+      const newState = [...prev]
+      newState[index] = true
+      return newState
+    })
   }
 
   // todoリストからの削除
   const CompleteItem = (completeIndex) => {
     // アイテムを削除
     setList(list.filter((_, index) => index !== completeIndex))
-    setFireState((prev) => ({ ...prev, [completeIndex]: false }))
+    setFireState((prev) => prev.filter((_, i) => i !== completeIndex));
   }
 
   return (
