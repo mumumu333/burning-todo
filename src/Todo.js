@@ -24,7 +24,7 @@ export const Todo = () => {
   const [fireState, setFireState] = useState([])
   const toast = useToast()
 
-  // 完了ボタンを押したとき
+  // 追加ボタンを押したとき
   const AddList = () => {
     // 全項目が入力されていない場合はトースト表示
     if (!detailTxt || !date) {
